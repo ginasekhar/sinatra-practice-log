@@ -36,17 +36,17 @@ In your browser, go to localhost:9393
 ## User instructions
 The following routes are available:
 
-|----------|----------------|-----------------|--------------------------------------| 
-|   NAME   |     PATH       |   HTTP VERB     |            PURPOSE                   |
-|----------|----------------|-----------------|--------------------------------------| 
-| Index    | /logs          |      GET        | Displays all practice logs           |
-| New      | /logs/new      |      GET        | Shows new form for new log entry     |
-| Create   | /logs          |      POST       | Creates a new practice log entry     |
-| Show     | /logs/:id      |      GET        | Shows one specified practice log     |
-| Edit     | /logs/:id/edit |      GET        | Shows edit form for one practice log |
-| Update   | /logs/:id      |      PATCH      | Updates a particular practice log    |
-| Delete   | /logs/:id      |      DELETE     | Deletes a particular practice log    |
-|----------|----------------|-----------------|--------------------------------------| 
+|----------|-------------------------|-----------|--------------------------------------| 
+|   NAME   |     PATH                | HTTP VERB |            PURPOSE                   |
+|----------|-------------------------|-----------|--------------------------------------| 
+| Index    | /practice_logs          |  GET      | Displays all practice logs           |
+| New      | /practice_logs/new      |  GET      | Shows new form for new log entry     |
+| Create   | /practice_logs          |  POST     | Creates a new practice log entry     |
+| Show     | /practice_logs/:id      |  GET      | Shows one specified practice log     |
+| Edit     | /practice_logs/:id/edit |  GET      | Shows edit form for one practice log |
+| Update   | /practice_logs/:id      |  PATCH    | Updates a particular practice log    |
+| Delete   | /practice_logs/:id      |  DELETE   | Deletes a particular practice log    |
+|----------|-------------------------|-----------|--------------------------------------| 
 
 
 ## Contributing
