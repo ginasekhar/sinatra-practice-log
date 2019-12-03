@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20191202145111) do
   create_table "practice_logs", force: :cascade do |t|
     t.date    "date"
     t.integer "practice_minutes"
-    t.string  "notes"
+    t.text    "notes"
     t.integer "student_id"
   end
 

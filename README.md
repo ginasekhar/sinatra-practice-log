@@ -58,4 +58,31 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/'vivac
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 # sinatra-practice-logs
 
- #background-color: lightblue;
+ input[type=submit] {
+    background-color: orange;
+    border: blue;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+  input[type=text] {
+    width: 300;
+    height: 100;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  input[type=text] {
+    width: 400;
+    height: 100;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  <a href="#" class="close">&times;</a>

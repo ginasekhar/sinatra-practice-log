@@ -7,8 +7,9 @@
     <p> You have no practice logs yet </p>
     <br>
 <% else %>  
+    
     <% @practice_logs.each do |log| %>
-        <p><strong><%= log.date.strftime("%a, %b %e %Y") %>  : </strong>Minutes Practiced: <%= log.practice_minutes %> <a href="/practice_logs/<%=log.id%>">Click to view notes/edit/delete </a> </p>
+        <p><strong><%= log.date.strftime("%a, %b %e %Y") %>  : </strong>Minutes Practiced: <%= log.practice_minutes %>  <a href="/practice_logs/<%=log.id%>">     Click to view notes/edit/delete    </a> </p>
         <br>
     <% end %>
  <%end %> 

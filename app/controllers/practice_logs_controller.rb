@@ -6,8 +6,7 @@ class PracticeLogsController < ApplicationController
             #binding.pry
             erb :"/practice_logs/index"
         else
-            error_message = "Please login to see practice_logs"
-            raise error_message
+            flash[:notice] = "Please login to see practice_logs"
             redirect to '/login'
         end
     end
@@ -16,8 +15,7 @@ class PracticeLogsController < ApplicationController
         if logged_in?
             erb :'/practice_logs/new'
         else
-            error_message = "Please login to create practice_logs"
-            raise error_message
+            flash[:notice] = "Please login to create practice_logs"
             redirect to '/login'
         end
     end
@@ -31,7 +29,7 @@ class PracticeLogsController < ApplicationController
                 if @practice_log.valid?
                     redirect to "/practice_logs/#{@practice_log.id}"
                 else
-                    @practice_log.errors.full_messages.to_sentence
+                    flash[:error] = @practice_log.errors.full_messages.to_sentence
                     redirect to "/practice_logs/new"
                 end
             end
@@ -57,11 +55,11 @@ class PracticeLogsController < ApplicationController
             if @practice_log 
                 erb :'/practice_logs/edit'
             else
-                @error = "this is not one of your practice logs.  You can't edit"
+                flash[:warning] = "this is not one of your practice logs.  You can't edit"
                 redirect to "/practice_logs"
             end
         else
-            @error = "Please login to create practice_logs"
+            @error = "Please login to edit practice_logs"
             redirect to  '/login'
         end
     end
