@@ -1,0 +1,15 @@
+<h2> Student: <%=current_user.fullname %> </h2>
+<%= @error %>
+<h3> Your practice logs: </h3>
+ 
+<% if @practice_logs.size == 0 %>
+    <h4> You have no practice logs yet </h4>
+<% else %>  
+    <% @practice_logs.each do |log| %>
+        <p><a href="/practice_logs/<%= log.id %>"><%=log.year %><%=log.month %><%=log.day %></a></p>
+        <br>
+    <% end %>
+ <%end %> 
+
+<a href="/practice_logs/new"> <button type="button" class="btn">New Practice Log</button></a>
+        

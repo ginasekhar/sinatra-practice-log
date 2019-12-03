@@ -12,8 +12,9 @@
   }
 
   /* --- Welcome Page Styles --- */
+  
   body {
-    background-color: lightblue;
+    background-image: url("../images/Violin.png");
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
@@ -57,6 +58,7 @@
 
   .content {
     float: left;
+    font-style: italic
     width: 60%; /* 480px / 800px */
   }
 
@@ -80,6 +82,17 @@
     border-top: 2px solid #ccc;
     margin-top: 20px;
     padding-top: 20px;
+  }
+  
+  .btn {
+    background-color: orange;
+    border: blue;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
   }
 }
 
@@ -111,5 +124,12 @@
   h2 {
     font-size: 18px;
     line-height: 24px;
+  }
+
+  .btn {
+    display: block;
+    font-size: 18px;
+    padding: 10px;
+    background-color: gray;
   }
 }

@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
     get '/' do
-        erb :'index'
+        erb :'welcome'
     end
 
     get '/signup' do
@@ -13,12 +13,14 @@ class StudentsController < ApplicationController
 
     post '/signup' do
         #create a new user
-        if Student.valid_params?(params)
-            @student = Student.new(params)
-            @student.save
-            session[:user_id] = @student.id
+        student = Student.new(params)
+        if student.valid?
+            student.save
+            session[:user_id] = student.id
+            @current_user = student
             redirect to '/practice_logs'  
         else
+            #raise student.errors.messages
             redirect to "/signup"
         end
     end
@@ -35,8 +37,10 @@ class StudentsController < ApplicationController
         student = Student.find_by(username: params[:username])
         if student && student.authenticate(params[:password])
             session[:user_id] = student.id
+            @current_user = student
             redirect "/practice_logs"
         else
+            #raise "Invalid credentials"
             redirect "/login"
         end
     end
@@ -50,6 +54,7 @@ class StudentsController < ApplicationController
     end
 
     post '/logout' do
+        @current_user = nil
         session.clear
         redirect "/"
     end

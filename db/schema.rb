@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20191202145111) do
     t.string  "day"
     t.integer "practice_minutes"
     t.string  "notes"
+    t.integer "student_id"
   end
 
   create_table "students", force: :cascade do |t|

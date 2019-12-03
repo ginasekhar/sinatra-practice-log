@@ -6,6 +6,7 @@ class CreatePracticeLogs < ActiveRecord::Migration
       t.string :day
       t.integer :practice_minutes
       t.string :notes
+      t.integer :student_id
     end
   end
 end

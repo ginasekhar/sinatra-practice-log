@@ -1,11 +1,12 @@
 class Student < ActiveRecord::Base
     has_secure_password
-    validates :email, confirmation: true
-    validates :email_confirmation, presence: true
-
+    validates :password, length: { minimum: 4 }
+    validates :fullname, presence: true
+    validates :username, uniqueness: true
+    validates :username, presence: true
+    validates :email, uniqueness: true
+    validates :username, presence: true
+    
     has_many :practice_logs
 
-    def self.valid_params?(params)
-        return !params[:fullname].empty? && !params[:username].empty? && !params[:email].empty?
-    end
   end
