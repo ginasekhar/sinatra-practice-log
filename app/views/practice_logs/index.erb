@@ -3,10 +3,12 @@
 <h3> Your practice logs: </h3>
  
 <% if @practice_logs.size == 0 %>
-    <h4> You have no practice logs yet </h4>
+    <br>
+    <p> You have no practice logs yet </p>
+    <br>
 <% else %>  
     <% @practice_logs.each do |log| %>
-        <p><a href="/practice_logs/<%= log.id %>"><%=log.year %><%=log.month %><%=log.day %></a></p>
+        <p><a href="/practice_logs/<%=log.id%>"> <%= log.date log.practice_minutes %> </a> </p>
         <br>
     <% end %>
  <%end %> 

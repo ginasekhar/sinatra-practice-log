@@ -40,7 +40,6 @@ class StudentsController < ApplicationController
             @current_user = student
             redirect "/practice_logs"
         else
-            #raise "Invalid credentials"
             redirect "/login"
         end
     end

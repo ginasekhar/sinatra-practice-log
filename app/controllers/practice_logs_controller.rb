@@ -3,7 +3,7 @@ class PracticeLogsController < ApplicationController
     get "/practice_logs" do
         if logged_in?
             @practice_logs = current_user.practice_logs
-            #binding.pry
+            binding.pry
             erb :"/practice_logs/index"
         else
             error_message = "Please login to see practice_logs"
@@ -27,10 +27,11 @@ class PracticeLogsController < ApplicationController
         if logged_in? 
             if @practice_log = current_user.practice_logs.build(params)
                 @practice_log.save
+                binding.pry
                 if @practice_log.valid?
                     redirect to "/practice_logs/#{@practice_log.id}"
                 else
-                    @error = "Not saved, try again"
+                    @practice_log.errors.full_messages.to_sentence
                     redirect to "/practice_logs/new"
                 end
             end
@@ -43,6 +44,7 @@ class PracticeLogsController < ApplicationController
     get '/practice_logs/:id' do 
         if logged_in? 
             @practice_log = PracticeLog.find_by_id(params[:id])
+            binding.pry
             erb :'/practice_logs/show'
         else
             redirect to '/login'
@@ -67,7 +69,9 @@ class PracticeLogsController < ApplicationController
     patch '/practice_logs/:id' do 
         if logged_in? 
             if @practice_log = current_user.practice_logs.find_by_id(params[:id])
-                @practice_log.update(params)
+                my_params = params.tap { |p| p.delete("_method") }
+                @practice_log.update(my_params)
+            
                 if @practice_log.valid? 
                     redirect to "/practice_logs/#{@practice_log.id}"
                 else
@@ -84,7 +88,6 @@ class PracticeLogsController < ApplicationController
     delete '/practice_logs/:id/delete' do
         if logged_in? 
             @practice_log = PracticeLog.find_by_id(params[:id])
-            #binding.pry
             if @practice_log && @practice_log.student == current_user
                 @practice_log.delete
                 @error = ""

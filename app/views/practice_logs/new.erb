@@ -3,16 +3,10 @@
 </header>
 
 <%= @error %>
-<% if logged_in? %>
   <form action='/practice_logs' method="post">
-    <label for="day"> Day: </label>
-    <input type="text" name="day"><br>
     <br>
-    <label for="month"> Month: </label>
-    <input type="text" name="month"><br>
-    <br>
-    <label for="year"> Year: </label>
-    <input type="text" name="year"><br>
+    <label for="date"> Date: </label>
+    <input type="date" name="date"><br>
     <br>
     <label for="practice_minutes"> Minutes Practiced: </label>
     <input type="text" name="practice_minutes"><br>
@@ -25,6 +19,3 @@
 
   </form>
 
-  <% else %>
-      <h1> You Must Be Logged in to Create a Practice Log </h1>
-  <% end %>

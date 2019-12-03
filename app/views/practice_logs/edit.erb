@@ -5,14 +5,8 @@
 <form method="POST" action="/practice_logs/<%= @practice_log.id %>">
     <input type="hidden" id="hidden" name="_method" value="PATCH">
     <br>
-    <label for="day"> Day: </label>
-    <input type="text" name="day" value="<%= @practice_log.day %>"><br>
-    <br>
-    <label for="month"> Month: </label>
-    <input type="text" name="month" value="<%= @practice_log.month %>"><br>
-    <br>
-    <label for="year"> Year: </label>
-    <input type="text" name="year" value="<%= @practice_log.year %>"><br>
+    <label for="day"> Date: </label>
+    <input type="date" name="date" value="<%= @practice_log.date %>"><br>
     <br>
     <label for="practice_minutes"> Minutes Practiced: </label>
     <input type="text" name="practice_minutes" value="<%= @practice_log.practice_minutes %>"><br>

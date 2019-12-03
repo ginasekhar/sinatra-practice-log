@@ -5,7 +5,7 @@ class Student < ActiveRecord::Base
     validates :username, uniqueness: true
     validates :username, presence: true
     validates :email, uniqueness: true
-    validates :username, presence: true
+    validates :email, presence: true
     
     has_many :practice_logs
 

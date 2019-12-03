@@ -1,8 +1,6 @@
 require './config/environment'
 
 class ApplicationController < Sinatra::Base
-  #helpers Sinatra::Partials
-  #register Sinatra::SimpleNavigation
   
   configure do
     set :public_folder, 'public'
