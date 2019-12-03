@@ -1,8 +1,8 @@
-<h2>Practice log: <%= @current_user.fullname %></h2>
+<h2>Practice log for:  <%= @current_user.fullname %></h2>
 
-<h4> Date : <%=@practice_log.date%></h4>
-<h3> Minutes Practiced: <%=@practice_log.practice_minutes%></h3>
-<h3> Notes: </h3>
+<h3> Date : <%=@practice_log.date.strftime("%a, %b %e %Y")%></h3>
+<h4> Minutes Practiced: <%=@practice_log.practice_minutes%></h4>
+<h4> Notes: </h4>
 <p><%=@practice_log.notes%> </p>
 
 

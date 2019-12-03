@@ -3,7 +3,7 @@ class PracticeLogsController < ApplicationController
     get "/practice_logs" do
         if logged_in?
             @practice_logs = current_user.practice_logs
-            binding.pry
+            #binding.pry
             erb :"/practice_logs/index"
         else
             error_message = "Please login to see practice_logs"
@@ -27,7 +27,7 @@ class PracticeLogsController < ApplicationController
         if logged_in? 
             if @practice_log = current_user.practice_logs.build(params)
                 @practice_log.save
-                binding.pry
+                #binding.pry
                 if @practice_log.valid?
                     redirect to "/practice_logs/#{@practice_log.id}"
                 else
@@ -44,7 +44,7 @@ class PracticeLogsController < ApplicationController
     get '/practice_logs/:id' do 
         if logged_in? 
             @practice_log = PracticeLog.find_by_id(params[:id])
-            binding.pry
+            #binding.pry
             erb :'/practice_logs/show'
         else
             redirect to '/login'
