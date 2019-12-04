@@ -11,8 +11,8 @@
     <label for="practice_minutes"> Minutes Practiced: </label>
     <input type="text" name="practice_minutes" value="<%= @practice_log.practice_minutes %>" class="user_input"><br>
     <br>
-    <label for="notes"> Notes (brief notes on what you worked on, what your next steps are): </label>
-    <input type="text" name="notes" value="<%= @practice_log.notes %>" class="user_large_text"><br>
-    <br>
+    <label for="notes"> Notes: (what you worked on, what are your next steps) </label><br>
+    </br>
+    <textarea name="notes" class="user_large_text" rows="4" cols="50" ><%= @practice_log.notes %></textarea><br>
     <input type="submit" value="submit" id="submit">
 </form>
