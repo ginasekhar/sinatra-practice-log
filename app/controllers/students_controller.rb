@@ -14,7 +14,7 @@ class StudentsController < ApplicationController
     post '/signup' do
         #create a new user
         student = Student.new(params)
-        if student.valid? && student.valid_username?
+        if student.valid?
             student.save
             session[:user_id] = student.id
             @current_user = student
