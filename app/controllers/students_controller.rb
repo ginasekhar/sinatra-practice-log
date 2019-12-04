@@ -14,13 +14,13 @@ class StudentsController < ApplicationController
     post '/signup' do
         #create a new user
         student = Student.new(params)
-        if student.valid?
+        if student.valid? && student.valid_username?
             student.save
             session[:user_id] = student.id
             @current_user = student
             redirect to '/practice_logs'  
         else
-            #raise student.errors.messages
+            flash[:error] =  student.errors.full_messages.to_sentence
             redirect to "/signup"
         end
     end
@@ -40,6 +40,7 @@ class StudentsController < ApplicationController
             @current_user = student
             redirect "/practice_logs"
         else
+            flash[:error] =  student.errors.full_messages.to_sentence
             redirect "/login"
         end
     end

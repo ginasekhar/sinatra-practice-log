@@ -9,4 +9,7 @@ class Student < ActiveRecord::Base
     
     has_many :practice_logs
 
+    def valid_username?
+     (username =~ /\A[a-z0-9_]{2,10}\Z/) == 0
+    end
   end

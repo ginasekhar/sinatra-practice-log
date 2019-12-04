@@ -20,8 +20,15 @@ class ApplicationController < Sinatra::Base
 
     def redirect_if_not_logged_in
       if !logged_in?
-        redirect "/login?error=You have to be logged in to do that"
+        flash[:error] = "Please login to use the Music Practice Logger"
+        redirect "/login"
       end
+    end
+
+    def redirect_if_not_authorized
+      flash[:error] = "There is no such log associated with your account. You cannot View, Edit or Delete it"
+      redirect to "/practice_logs"
+        
     end
 
     def logged_in?
