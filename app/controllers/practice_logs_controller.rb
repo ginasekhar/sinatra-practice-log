@@ -3,6 +3,8 @@ class PracticeLogsController < ApplicationController
     get "/practice_logs" do
         if logged_in?
             @practice_logs = current_user.practice_logs
+            @current_total_mins = current_user.total_practice_mins
+            @class_avg_total_mins = PracticeLog.avg_total_practice_mins
             erb :"/practice_logs/index"
         else
             redirect_if_not_logged_in
@@ -18,12 +20,10 @@ class PracticeLogsController < ApplicationController
     end
     
     post '/practice_logs' do 
-        #binding.pry
         if logged_in? 
             @practice_log = current_user.practice_logs.build(params)
             if @practice_log && @practice_log.valid?
                 @practice_log.save
-                #binding.pry
                 redirect to "/practice_logs/#{@practice_log.id}"
             else
                 flash[:error] = @practice_log.errors.full_messages.to_sentence
@@ -35,8 +35,7 @@ class PracticeLogsController < ApplicationController
     end
     
     get '/practice_logs/:id' do 
-        if logged_in? 
-            #binding.pry
+        if logged_in?
             @practice_log = current_user.practice_logs.find_by_id(params[:id])
             if @practice_log  
                 erb :'/practice_logs/show'

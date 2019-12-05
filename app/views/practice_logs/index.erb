@@ -1,6 +1,9 @@
-<h2> Student: <%=current_user.fullname %> </h2>
-<%= @error %>
-<h3> Your practice logs: </h3>
+<h4> <%=current_user.fullname %>, you have logged a total of <%=@current_total_mins %> practice minutes. 
+The class average is <%=@class_avg_total_mins %> practice minutes. </h4>
+<br>
+<p>  <strong> Your Practice Logs </strong> </p>
+<p> ======================================================================================================== </p>
+
  
 <% if @practice_logs.size == 0 %>
     <br>

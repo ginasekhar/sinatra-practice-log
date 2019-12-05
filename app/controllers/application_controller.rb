@@ -19,6 +19,7 @@ class ApplicationController < Sinatra::Base
   helpers do
 
     def redirect_if_not_logged_in
+      #this method is invoked if user is not logged in and tries to view, edit or delete
       if !logged_in?
         flash[:error] = "Please login to use the Music Practice Logger"
         redirect "/login"
@@ -26,6 +27,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def redirect_if_not_authorized
+      #this method is invoked if user is logged in but tries to view, edit or delete a practice_log that does not exist or belong to them
       flash[:error] = "There is no such log associated with your account. You cannot View, Edit or Delete it"
       redirect to "/practice_logs"
         
