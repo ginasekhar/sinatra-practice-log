@@ -2,7 +2,7 @@ class PracticeLogsController < ApplicationController
 
     get "/practice_logs" do
         if logged_in?
-            @practice_logs = current_user.practice_logs
+            @practice_logs = current_user.practice_logs.order(:date)
             @current_total_mins = current_user.total_practice_mins
             @class_avg_total_mins = PracticeLog.avg_total_practice_mins
             erb :"/practice_logs/index"

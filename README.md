@@ -20,31 +20,39 @@ sinatra-flash
 Install the gems required by this program
 
     gem install sinatra-flash
+    bundle install 
 
-## Create database
-rake db:migrate
-seed database
-rake db:seed
-Run shotgun from the terminal
+## Server side tasks
 
-## Running
- the program
-In your browser, go to localhost:9393
+From a terminal window execute the following:
+    rake db:migrate
+    seed database
+    rake db:seed
+    shotgun
+
+## Running the program
+In your browser, go to localhost:9393.  This will bring you to a welcome page that allows you to login or sign up for a new account or shows a summary page if user is already logged in.
 
 ## User instructions
-The following routes are available:
+From the welcome page, the user has the option of signing up for a new account.
+    ## Sign Up 
+    All the required fields have a '*' in front of the label.
+      Fullname - Must start with a letter, must be between 2 and 40 characters and only contain alphanumeric or (. , - ')
+      Username - must start with alpha, be 2 to 10 characters and only contain lower case alpha and numeric or (_). Will not allow you to               enter a duplicate username
+      Email -   Must have the proper email format. Will not allow user to enter a duplicate email.
+      Password - must be atleast 4 characters.  Passweord Confirmation must match password
+    Once the user signs up, the system automatically logs them in and brings them to their practice log index page. 
 
-|----------|-------------------------|-----------|--------------------------------------| 
-|   NAME   |     PATH                | HTTP VERB |            PURPOSE                   |
-|----------|-------------------------|-----------|--------------------------------------| 
-| Index    | /practice_logs          |  GET      | Displays all practice logs           |
-| New      | /practice_logs/new      |  GET      | Shows new form for new log entry     |
-| Create   | /practice_logs          |  POST     | Creates a new practice log entry     |
-| Show     | /practice_logs/:id      |  GET      | Shows one specified practice log     |
-| Edit     | /practice_logs/:id/edit |  GET      | Shows edit form for one practice log |
-| Update   | /practice_logs/:id      |  PATCH    | Updates a particular practice log    |
-| Delete   | /practice_logs/:id      |  DELETE   | Deletes a particular practice log    |
-|----------|-------------------------|-----------|--------------------------------------| 
+    ## 
+
+
+If the user was already logged in, it brings the user to an index page that lists all their practice logs. At the top of the list, it also has a summary of the total minutes they have logged and the class average.  The user has the option of creating a new practice log by clicking on the 'New Practice Log' button at the bootom of the list.  They can also choose to click on one of the existing logs to view detailed notes, edit it or delete it.
+
+
+
+
+
+ 
 
 
 ## Contributing

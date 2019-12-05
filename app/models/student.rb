@@ -10,7 +10,7 @@ class Student < ActiveRecord::Base
                         message: "must start with alpha, be 2 to 10 characters and only contain lower case alpha and numeric or (_)" }
   validates :email, uniqueness: true
   validates :email, presence: true
-  validates :email, format: { with: /\A[^@\s]+@[^@\s]+\z/,
+  validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i,
                         message: "invalid email format" }
   
   has_many :practice_logs
@@ -20,3 +20,5 @@ class Student < ActiveRecord::Base
     self.practice_logs.sum("practice_minutes")
   end
 end
+
+/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
