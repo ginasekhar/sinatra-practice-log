@@ -17,17 +17,11 @@ This program requires the following gems:
 sinatra-flash
 
 ## Installation
-Install the gems required by this program
-
-    gem install sinatra-flash
-    bundle install 
-
-## Server side tasks
 
 From a terminal window execute the following:
+    bundle install 
     rake db:migrate
-    seed database
-    rake db:seed
+    
     shotgun
 
 ## Running the program
@@ -43,17 +37,15 @@ From the welcome page, the user has the option of signing up for a new account.
       Password - must be atleast 4 characters.  Passweord Confirmation must match password
     Once the user signs up, the system automatically logs them in and brings them to their practice log index page. 
 
-    ## 
+    ## Create new practice log
+    From the practice logs index page, the user can click on the 'New Practice Log' button to create a new practice log.
+    All the required fields have a '*' in front of the label.
+    Date - Pick a date from the calendar for the log.  Date should not be in the future or earlier than a year ago.
+    Practice minutes  - must be a number between 10 and 600 
+  
+    ## From the index page, the user can click the link to view, edit or delete a log.
 
-
-If the user was already logged in, it brings the user to an index page that lists all their practice logs. At the top of the list, it also has a summary of the total minutes they have logged and the class average.  The user has the option of creating a new practice log by clicking on the 'New Practice Log' button at the bootom of the list.  They can also choose to click on one of the existing logs to view detailed notes, edit it or delete it.
-
-
-
-
-
- 
-
+    ## From any page, they can logout.
 
 ## Contributing
 
@@ -64,31 +56,5 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/'vivac
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 # sinatra-practice-logs
 
- input[type=submit] {
-    background-color: orange;
-    border: blue;
-    color: black;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-  }
-
-  input[type=text] {
-    width: 300;
-    height: 100;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-  }
-
-  input[type=text] {
-    width: 400;
-    height: 100;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-  }
 
   
