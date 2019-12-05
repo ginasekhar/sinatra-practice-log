@@ -24,7 +24,7 @@ class PracticeLogsController < ApplicationController
             @practice_log = current_user.practice_logs.build(params)
             if @practice_log && @practice_log.valid?
                 @practice_log.save
-                redirect to "/practice_logs/#{@practice_log.id}"
+                redirect to "/practice_logs"
             else
                 flash[:error] = @practice_log.errors.full_messages.to_sentence
                 redirect to "/practice_logs/new"
@@ -66,7 +66,7 @@ class PracticeLogsController < ApplicationController
             @practice_log = current_user.practice_logs.find_by_id(params[:id])
                 
             if @practice_log && @practice_log.update(my_params)
-                redirect to "/practice_logs/#{@practice_log.id}"
+                redirect to "/practice_logs"
             else
                 flash[:error] =  @practice_log.errors.full_messages.to_sentence
                 redirect to "/practice_logs/#{@practice_log.id}/edit"

@@ -14,23 +14,21 @@ In your target directory
 This program requires the following gems:
 
 ## list all the gems required
-
+sinatra-flash
 
 ## Installation
 Install the gems required by this program
 
-    gem install 
+    gem install sinatra-flash
 
-    gem install 
-
-## Running the program
-
-create database
+## Create database
 rake db:migrate
 seed database
 rake db:seed
 Run shotgun from the terminal
 
+## Running
+ the program
 In your browser, go to localhost:9393
 
 ## User instructions
@@ -85,4 +83,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
     box-sizing: border-box;
   }
 
-  <a href="#" class="close">&times;</a>
+  

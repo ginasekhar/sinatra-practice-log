@@ -13,8 +13,8 @@
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
     <% if logged_in? %>
-        <a href="/logout"><button type="button" class="btn">Logout</button></a>
-        <a href="/practice_logs"><button type="button" class="btn">My Practice Logs</button></a>
+        <a href="/logout"><button type="button" class="btn">Logout <%=current_user.username%></button></a>
+        <a href="/practice_logs"><button type="button" class="btn">Practice Logs</button></a>
       <% else %>  
         <a href="/login"><button type="button" class="btn">Login</button></a>
         <a href="/signup"><button type="button" class="btn">Sign Up</button></a>

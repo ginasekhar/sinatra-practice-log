@@ -1,0 +1,34 @@
+Validation is best that comes from within…
+
+
+
+For my Sinatra project, I decided to create an app that will allow music students to log their practice hours each day.  
+I created a student model and a practice log model.  With the power of ActiveRecord validations, 
+I was able to perform validations of user entered data within the models themselves.
+ These validations are automatically run when the object is created, saved or updated or can be triggered by invoking the valid? method before saving.
+In my student model, I was able to check that the value was not blank, that an attribute was unique (e.g. username, email) 
+and had the correct format for that attribute. In my practice_log model, I checked that practice_minutes was numeric 
+and was within a predetermined range and specified a custom message to be displayed when data entered was not valid. 
+I even created my own custom validation by defining a method (i.e. log_date_in_range) created to make sure that the date 
+the user selected was within the past year. My models are below:
+
+
+ Any errors on validation can be accessed using ActiveRecord’s errors method. 
+ I used this feature in conjunction with  the sinatra-flash gem to render error messages. 
+ I found detailed instructions on sinatra-flash at  https://gist.github.com/cmkoller/0d3b048b3c4b48ee4955
+ For example, when creating a new practice_log, I  "build" a new practice log with the data the user input and then validate it . 
+If it is not valid, I set the flash error message and this is rendered when the user is redirected.
+
+
+Having the validations in the model using ActiveRecord's built-in features made my code more DRY and robust. 
+In coding, as in life, "Validation is best that comes from within…"
+“Belief in yourself is more important than endless worries of what others think of you. 
+Value yourself and others will value you. Validation is best that comes from within.”
+
+― Ngũgĩ wa Thiong’o – Dreams in a Time of War
+
+ 
+
+
+
+

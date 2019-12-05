@@ -1,6 +1,4 @@
-<h2>Practice log for:  <%= @current_user.fullname %></h2>
-
-<h3> Date : <%=@practice_log.date.strftime("%a, %b %e %Y")%></h3> 
+<h4>This is your practice log for: <%=@practice_log.date.strftime("%a, %b %e %Y")%> </h4>
 <br>
 <h4> Minutes Practiced: <%=@practice_log.practice_minutes%></h4>
 <br>
@@ -11,8 +9,9 @@
 <a href="/practice_logs/<%=@practice_log.id%>/edit"><button type="button" class="btn">Edit Log</button></a>
 <br>
 <br>
+
 <form method="POST" action="/practice_logs/<%= @practice_log.id %>/delete">
     <input type="hidden" id="hidden" name="_method" value="DELETE">
-    <input type="submit" name="Delete Log" value="Delete Log">
+    <input type="hidden" name="_token" value="the_token">
+<button type="submit" class="btn btn-link" onclick="if (!confirm('Are you sure?')) { return false }"><span>Delete Log</span></button>
 </form>
-</span>
